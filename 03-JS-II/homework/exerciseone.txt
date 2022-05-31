@@ -1,0 +1,71 @@
+for
+
+Los bucles for tienen una sintaxis única. Primero tenemos la palabra clave for, seguida de los paréntesis y luego abrir y cerrar llaves. Dentro de los paréntesis necesitamos tres cosas.  
+
+•	Primero declaramos la variable (le asignamos un numero entero, servirá como nuestro contador).
+•	Segundo indicamos la expresión condicional, es decir, comparamos la variable mediante los operadores de comparación y un valor entero.
+•	Tercero incrementamos nuestra variable.
+
+Ejemplo:
+
+for (let i = 0; i < 10; i++) {
+	console.log(i);
+}
+
+¿Cómo funciona?
+
+El bucle for comienza por darle un valor inicial a la variable (normalmente 0 o 1), enseguida compara la expresión condicional si esta se cumple y posteriormente incrementa la variable. Termina el ciclo cuando ya no se cumpla la expresión condicional.
+En el ejemplo anterior i comienza en 0, hace la comparativa 0 < 10 como es verdadero (true), incrementa 1 al valor de i, vuelve a comparar 1 < 10 esto es verdadero, se vuelve a incrementa 1 al valor de i, vuelve a comparar 2 < 10 y así sucesivamente hasta que no se cumpla la condición que es 10 < 10 como esto es falso (false) terminara el ciclo for. (hace el ciclo 10 veces comenzando por el 0 hasta el 9).  
+
+
+
+Operadores lógicos
+
+
+&&
+
+El operador “Y” (AND), está escrito con dos símbolos (&&). Esto evaluará ambas expresiones y devolverá verdadero si ambas expresiones son verdaderas (true). Si uno (o ambos) de ellos son falso(s), este operador devolverá falso (false). 
+
+Ejemplo:
+
+if (100 > 10 && 10 === 10) {
+	console.log(‘Ambas declaraciones son ciertas, este código se ejecutará);
+	}
+
+if (10 === 9 && 10 > 9) {
+	console.log(‘Una de las declaraciones es false, por lo que && devolverá false, y este código no se ejecutará);
+}
+
+
+||
+
+El operador “O” (OR), está escrito con dos barras verticales (||). Determinará si una de las expresiones es true. Devolverá true si una (o ambas) de las expresiones es verdadera (true). Devolverá falso (false) si ambas expresiones son falsas (false):
+
+Ejemplos:
+
+if (100 > 10 || 10 === 10){
+	console.log(‘Ambas declaraciones son ciertas, este código se ejecutará);
+	}
+
+if (10 === 9 || 10 > 9) {
+	console.log(‘Una de las declaraciones es true, por lo que || devolverá true y este código se ejecutará);
+	}
+
+If (10 === 9 || 1 > 9) {
+	console.log(‘Ambas declaraciones son falsas, por lo que || devolverá true y este código no se ejecutará’);
+	}
+
+
+!
+
+El operador lógico “NOT” (NO), está escrito con un solo signo de exclamación (!). El operador NOT devolverá el valor booleano opuesto de lo que se le pasa:
+
+Ejemplo:
+
+if (!false){
+	console.log(‘El ! devolverá true, porque es lo contrario de false, así que este código se ejecutará);
+	}
+
+if (!(1 === 1)){
+	console.log(‘1 es igual a 1, de modo que la expresión devuelve true. El operador ! devolverá lo contrario de eso, por lo que este código no se ejecutará);
+	}
