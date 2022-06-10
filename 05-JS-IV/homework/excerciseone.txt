@@ -1,0 +1,257 @@
+Describe los siguientes conceptos:
+•	Objetos
+•	Notación de puntos vs Notificación de corchetes
+•	Propiedades
+•	Métodos
+•	Bucle for…in
+
+
+Objetos
+
+Los objetos y las matrices son similares en ciertas cosas, y muy diferentes en otras. Mientras que los arrays pueden contener múltiples elementos relacionados unos con otros, los objetos contienen mucha información sobre una sola cosa. Los objetos se instancian usando llaves (‘{}’).
+
+Sintaxis:
+
+const nuevoObjeto = {};
+
+A diferencia de las matrices que tienen elementos valorados en índices, los objetos usan un concepto llamado pares de clave: valor. La clave (key) es el identificador y el valor (value) es el valor que queremos guardar en esa clave. La sintaxis es “clave: valor”. Los objetos pueden contener muchos pares de clave-valor, deben estar separados por una coma (importante: sin punto y coma dentro de un objeto). Las claves son únicas en un objeto, solo puede haber una clave de ese nombre, aunque, varias claves pueden tener el mismo valor. Los valores pueden ser cualquier tipo de dato de JavaScript; cadena, número, booleano, matriz, función o incluso otro objeto. En esta demostración creamos un objeto ‘usuario’.
+
+Ejemplo:
+
+const user = {
+	username: ‘juan.perez’,
+	password: ‘loremipsumpwd123’,
+	lovesJavascript: true,
+	favoritosNumber: 42
+};
+
+Entonces, un objeto es en realidad un arreglo asociativo (por ejemplo, map, dictionary, hash, lookup table). Las claves en este arreglo son los nombres de las propiedades y los métodos (propiedades que hacen referencia a funciones). Hay dos modos de acceder a estas propiedades: notación por punto y notación por corchetes (es decir, operador de subscripción). 
+Nota: Las propiedades ECMAScript etiqueta estos operadores como “property accessors” en vez de “operadores de miembros” (member operators).
+
+
+Notación por punto
+
+get = objeto.propiedad;
+
+objeto.propiedad = set;
+
+propiedad debe ser un identificador válido de JavaScript, esto es, una secuencia alfanumérica de caracteres, incluyendo también el guion bajo (“_”) y el signo dólar (“$”), que no puede comenzar por un número. Por ejemplo, objeto.$1 es válido, mientras que objeto.1 no lo se.
+
+Ejemplo:
+
+document.createElement(‘pre’);
+
+Aquí, el método llamado “createElement” se recupera de document y se le llama.
+
+
+Notación por corchetes
+
+get = objeto[nombre_propiedad];
+
+objeto[nombre_propiedad] = set;
+
+nombre_propiedad es una cadena. La cadena no tiene que ser un identificador válido; puede tener cualquier valor, por ejemplo, “1foo”, “!bar!”, o incluso “ “ (un espacio).
+
+Ejemplo:
+
+Document [‘createElement’] (‘pre’);
+
+Esto hace exactamente lo mismo que el ejemplo anterior.
+
+
+Acceder a los valores
+
+Una vez que tenemos los pares claves-valor, podemos acceder a esos valores llamando al nombre del objeto y la clave. Hay dos formas diferentes de hacer esto, usando puntos o usando corchetes.
+
+Con la notación de puntos podemos llamar al nombre del objeto, un punto y el nombre del objeto, un punto y el nombre de la clave. Así como llamamos la propiedad ‘length’ en una matriz. La propiedad de longitud es un par de claves-valor.
+
+user.lovesJavascript; // true
+user.username; // juan.perez
+
+La notación de corchetes es como llamar a un elemento en una matriz, aunque con corchetes debemos usar una cadena o número. Se puede llamar a cada clave envolviéndola con comillas:
+
+Ejemplo:
+
+const passString = ‘password’;
+user[‘lovesJavascript’]; // true
+user[‘username’]; // juan.perez
+user[passString]; // loremipsumpwd123
+
+Generalmente veremos que los corchetes casi siempre se usan con variables.
+
+
+Asignación de valores
+
+Asignar valores funciona igual que acceder a ellos. Podemos asignarlos, cuando creamos el objeto, con notación de puntos o con notación de corchetes:
+
+Ejemplo:
+
+const nuevoUsuario = {
+	esNuevo : true
+}
+
+const loveJSString = ‘loveJavascript’;
+
+nuevoUsuario.username = ‘otro.nombre.de.usuario’;
+nuevoUsuario[‘password’] = ‘12345’;
+nuevoUsuario[loveJSString] = true;
+
+Una propiedad de un objeto se puede explicar como una variable adjunta al objeto. Las propiedades de un objeto básicamente son lo mismo que las variables comunes de JavaScript, excepto por el nexo con el objeto. Las propiedades de un objeto definen las características del objeto. Accedes a las propiedades de un objeto con una simple notación de puntos:
+
+objectName.propertyName
+
+Como todas las variables de JavaScript, tanto el nombre como el objeto (que pueden ser una variable normal) como el nombre de la propiedad es sensibles a mayúsculas y minúsculas. Podemos definir propiedades asignándoles un valor. Por ejemplo, vamos a crear un objeto llamado myCar y le vamos a asignar propiedades denominadas make, model y year de la siguiente manera:
+
+Var myCar = new object();
+myCar.make = ‘Ford’;
+myCar.model = ‘Mustang’;
+myCar.year = 1969;
+
+El ejemplo anterior también se podría escribir un iniciador de objetos, que es una lista delimitada por comas de cero o más pares de nombres de propiedad y valor asociados de un objeto, encerrados entre llaves ({}):
+
+var myCar = {
+	make: ‘Ford’,
+	model: ‘Mustang’,
+	year: 1969
+};
+
+Las propiedades no asignadas de un objeto son undefined (y no null).
+
+myCar.color; //undefined
+
+También podemos acceder o establecer las propiedades de los objetos en JavaScript mediante la notación de corchetes ↑[]↓. Los objetos, a veces son llamados arreglos asociativos, debido a que cada propiedad está asociada con un valor de cadena que se puede utilizar para acceder a ella. Por ejemplo, puede acceder a las propiedades del objeto myCar de la siguiente manera:
+
+myCar[‘make’] = ‘Ford’;
+myCar[‘model’] = Mustang;
+myCar[‘year’] = 1969;
+
+El nombre de las propiedades de un objeto pueden ser cualquier cadena válida de JavaScript, o cualquier cosa que se pueda convertir en una cadena, incluyendo una cadena vacía. Sin embargo, cualquier nombre de propiedad que no sea un identificador válido de JavaScript (por ejemplo, el nombre de alguna propiedad que tenga un espacio o un guion, o comience con un número) solo se puede acceder utilizando la notación de corchetes. Esta notación es muy útil también cuando los nombres de propiedades son determinados dinámicamente (cuando el nombre de la propiedad no se determina hasta el tiempo de ejecución). Ejemplos de esto se muestra a continuación:
+
+// Se crea y asigna cuatro variables de una sola vez,
+// separadas por comas
+
+Var myObj = new Object (),
+       srt = ‘myString’,
+       rand = Math.random(),
+       obj = new Object();
+
+myObj.type 			= ‘Syntaxis de puntos’;
+myObj [‘fecha de creación’]   	= ‘Cadena con espacios’;
+myObj [str]			= ‘Valor de cadena’;
+MyObj[rand] 			= ‘Numero aleatorio’;
+myObj[obj]			= ‘object’;
+myobj[‘’]			= ‘Incluso una cadena vacía’;
+
+console.log(myObj);
+
+Hay que tener en cuenta que todas las claves con notación en corchetes se convierten en cadenas a menos que estas sean símbolos, ya que los nombres de las propiedades (claves) en JavaScript pueden ser solo cadenas o símbolos (en algún momento, los nombres privados también serán agregados a medida que progrese la propuesta de los campos de clase, pero no las usaremos con el formato []). Por ejemplo, en el código anterior, cuando la clave obj se añadió a myObj, JavaScript llamará al método obj.toString(), y usará la cadena resultante de esta llamada como la nueva clave.
+
+También puedes acceder a las propiedades mediante el uso de un valor de cadena que se almacena en una variable:
+
+var propertyName = ‘make’;
+myCar [propertyName] = ‘Ford’;
+propertyName = ‘model’;
+myCar[propertyName] = ‘Mustang’;
+
+Podemos usar la notación de corchetes con for…in para iterar sobre todas las propiedades enumerables de un objeto. Para ilustrar cómo funciona esto, la siguiente función muestra las propiedades del objeto y el nombre del objeto como argumento a la función: 
+
+function showProps(obj, objName) {
+	var result = ``;
+	for (var i in obj) {
+	// obj.hasOwnProperty() se usa para filtrar propiedades de la cadena de prototipos del objeto
+		If (obj.hasOwnProperty(i)) {
+			result += `${objName}.${i} = ${obj[i]} \n`;
+		}
+	}
+	return result;
+}
+
+Por lo tanto, la llamada a la función showProps (myCar, “myCar”) devolverá lo siguiente:
+
+myCar.make = Ford
+myCar.model = Mustang
+myCar.year = 1969
+
+
+Enumera las propiedades de un objeto
+
+A partir de ECMAScript 5, hay tres formas nativas para enumerar/recorrer las propiedades de objetos:
+
+•	bucles for…in
+Este método recorre todas las propiedades enumerables de un objeto y su cadena de prototipos.
+
+•	Object.keys(o)
+Este método devuelve un arreglo con todos los nombres de propiedades enumerables.
+
+•	Object.getOwnPropertyNanes(o).
+Este método devuelve un arreglo que contiene todos los nombres (enumerables o no) de las propiedades de un objeto o.
+
+Antes de ECMAScript 5, no existía una manera nativa para enumerar todas las propiedades de un objeto. Sin embargo, esto se puede lograr con la siguiente función:
+
+function listAllpropierties (o) {
+		var objetToInspect;
+		var result = [];
+
+		for (objetToInserct = o; objectInspect !== null;
+			objectToInspect = object.getPrototypeOf(ObjectToInspect)) {
+		result = result.concat(
+			Object.getOwnPropertyNames(objectToInspect) 
+		);
+	   }
+
+		return result;
+}
+
+Esto pueden ser útil para revelar propiedades “ocultas” (propiedades de la cadena de prototipos a las que no se puede acceder a través del objeto, porque otra propiedad tiene el mismo nombre en la cadena de prototipos). Enumerar las propiedades accesibles solo es posible eliminando los duplicados en el arreglo.
+
+ 
+Eliminando propiedades
+
+Si queremos eliminar una propiedad, podemos hacerlo usando la palabra clave ‘delete’.
+
+Ejemplo:
+
+const nuevoObjeto = {
+	eliminarEstaPropiedad: true
+};
+
+delete nuevoObjeto.eliminarEstaPropiedad; 
+
+
+Métodos
+
+En los objetos, los valores se pueden establecer en funciones. Las funciones guardadas en un objeto se denominan métodos. Hemos utilizado muchos métodos `.length`, `.push`, `.pop`, etc., son todos métodos . Podemos establecer una clave para un nombre y el valor para una función. Al igual que otras veces que llamamos métodos, llamaremos a este método usando notificación de puntos y paréntesis finales (Nota: podemos llamar a un método con argumentos como lo harías con una función normal).
+
+const nuevoObjeto = {
+	describa: function() {
+		console.log(‘Hola a todo el mundo!’);
+	}
+}
+
+nuevoObjeto.decirHola();
+
+Bucles “for…in”
+
+A veces queremos iterar sobre cada par clave-valor en nuestro objeto. Con las matrices, utilizamos un estándar para el bucle y una variable de número de índice. Los objetos no contienen índices numéricos, por lo que el bucle estándar no funcionará para los objetos. Javascript tiene un segundo tipo de bucle for integrado llamado “*for…in loop”. Es una sintaxis ligeramente diferente, comienza igual, pero entre paréntesis declararemos una variable, la palabra clave `in` y el nombre del objeto. Esto recorrerá cada clave del objeto y finalizará cuando se haya iterado todas las claves. Podemos usar esta clave, y la notación de corchetes, en nuestro bucle for para acceder al valor asociado con esa clave.
+
+const usuario = {
+	usarname: ‘juan.perez’,
+	password: ‘loremipsumwd123’,
+	lovesJavascript: true,
+	favoriteNumber: 42
+};
+
+for (let clave in usuario){
+	console.log(clave);
+	console.log(usuario[clave]);
+}
+
+//username
+//’juan.perez’
+//password
+//’loremipsumpwd123’
+//lovesJavascript
+//true
+//favoriteNumber
+//42
+ 
